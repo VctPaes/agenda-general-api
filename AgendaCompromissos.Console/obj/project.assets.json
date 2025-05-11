@@ -1,26 +1,45 @@
 {
   "version": 3,
   "targets": {
-    "net9.0": {}
+    "net9.0": {
+      "AgendaCompromissos.Modelo/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "compile": {
+          "bin/placeholder/AgendaCompromissos.Modelo.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/AgendaCompromissos.Modelo.dll": {}
+        }
+      }
+    }
   },
-  "libraries": {},
+  "libraries": {
+    "AgendaCompromissos.Modelo/1.0.0": {
+      "type": "project",
+      "path": "../AgendaCompromissos.Modelo/AgendaCompromissos.Modelo.csproj",
+      "msbuildProject": "../AgendaCompromissos.Modelo/AgendaCompromissos.Modelo.csproj"
+    }
+  },
   "projectFileDependencyGroups": {
-    "net9.0": []
+    "net9.0": [
+      "AgendaCompromissos.Modelo >= 1.0.0"
+    ]
   },
   "packageFolders": {
-    "C:\\Users\\victo\\.nuget\\packages\\": {}
+    "C:\\Users\\Muril\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\victo\\Documents\\GitHub\\Provisório\\AgendaCompromissos.Console\\AgendaCompromissos.Console.csproj",
+      "projectUniqueName": "C:\\Users\\Muril\\Downloads\\Trabalho OO\\agenda-general-api\\AgendaCompromissos.Console\\AgendaCompromissos.Console.csproj",
       "projectName": "AgendaCompromissos.Console",
-      "projectPath": "C:\\Users\\victo\\Documents\\GitHub\\Provisório\\AgendaCompromissos.Console\\AgendaCompromissos.Console.csproj",
-      "packagesPath": "C:\\Users\\victo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\victo\\Documents\\GitHub\\Provisório\\AgendaCompromissos.Console\\obj\\",
+      "projectPath": "C:\\Users\\Muril\\Downloads\\Trabalho OO\\agenda-general-api\\AgendaCompromissos.Console\\AgendaCompromissos.Console.csproj",
+      "packagesPath": "C:\\Users\\Muril\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Muril\\Downloads\\Trabalho OO\\agenda-general-api\\AgendaCompromissos.Console\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\victo\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Muril\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -31,7 +50,11 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\Muril\\Downloads\\Trabalho OO\\agenda-general-api\\AgendaCompromissos.Modelo\\AgendaCompromissos.Modelo.csproj": {
+              "projectPath": "C:\\Users\\Muril\\Downloads\\Trabalho OO\\agenda-general-api\\AgendaCompromissos.Modelo\\AgendaCompromissos.Modelo.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -65,7 +88,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.202/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AgendaCompromissos.Console")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d600afdaa582659c9efb87ef66808750a42d639f")]
 [assembly: System.Reflection.AssemblyProductAttribute("AgendaCompromissos.Console")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AgendaCompromissos.Console")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

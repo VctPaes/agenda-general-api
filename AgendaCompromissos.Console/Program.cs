@@ -137,7 +137,7 @@ static void RegistrarCompromisso(Usuario usuario)
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Erro ao adicionar participante: {ex.Message}");
+            Console.WriteLine($"{ex.Message}");
             Console.WriteLine($"Proseguindo sem adição do participante escedente.");
         }
         }

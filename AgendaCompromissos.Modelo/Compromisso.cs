@@ -53,10 +53,6 @@ public class Compromisso
 
     public void AdicionarAnotacao(string texto)
     {
-        if (string.IsNullOrWhiteSpace(texto))
-        {
-            throw new ArgumentException("O texto da anotação não pode ser vazio.");
-        }
         _anotacoes.Add(new Anotacao(texto));
     }
 

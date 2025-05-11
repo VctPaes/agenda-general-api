@@ -45,9 +45,39 @@ static void RegistrarCompromisso(Usuario usuario)
 
     Console.WriteLine("\nVamos registrar um novo compromisso.\n");
 
-    while(data == null || hora == null || string.IsNullOrWhiteSpace(descricao) || string.IsNullOrWhiteSpace(nomeLocal) || capacidade == null)
+    while( string.IsNullOrWhiteSpace(nomeLocal) || capacidade == null)
     {
 
+    
+    Console.Write("Digite o nome do local: ");
+    nomeLocal = Console.ReadLine();
+    
+
+    while (capacidade == null)
+    {
+        Console.Write("Digite a capacidade máxima do local: ");
+        var capacidadeDigitada = Console.ReadLine();
+        try
+        {
+            capacidade = int.Parse(capacidadeDigitada);
+        }
+        catch (FormatException)
+        {
+            Console.WriteLine($"{capacidadeDigitada} não é um número válido. Tente novamente.");
+        }
+    }
+    try{
+        Local local = new(nomeLocal, capacidade.Value);
+    }
+    catch (ArgumentException ex)
+    {
+        Console.WriteLine($"Erro ao criar o local: {ex.Message}");
+        nomeLocal = null;
+        capacidade = null;
+    }
+    }
+    
+    while(data == null || hora == null || string.IsNullOrWhiteSpace(descricao)){
     while (data == null)
     {
         Console.Write("Digite a data do compromisso (dd/MM/yyyy): ");
@@ -82,40 +112,9 @@ static void RegistrarCompromisso(Usuario usuario)
 
     DateTime dataHora = data.Value.Add(hora.Value);
 
-    while (string.IsNullOrWhiteSpace(descricao))
-    {
-        Console.Write("Digite a descrição do compromisso: ");
-        descricao = Console.ReadLine();
-        if (string.IsNullOrWhiteSpace(descricao))
-        {
-            Console.WriteLine("A descrição não pode ser vazia. Tente novamente.");
-        }
-    }
-
-    // Coleta do nome do local
-    while (string.IsNullOrWhiteSpace(nomeLocal))
-    {
-        Console.Write("Digite o nome do local: ");
-        nomeLocal = Console.ReadLine();
-        if (string.IsNullOrWhiteSpace(nomeLocal))
-        {
-            Console.WriteLine("O nome do local não pode ser vazio. Tente novamente.");
-        }
-    }
-
-    while (capacidade == null)
-    {
-        Console.Write("Digite a capacidade máxima do local: ");
-        var capacidadeDigitada = Console.ReadLine();
-        try
-        {
-            capacidade = int.Parse(capacidadeDigitada);
-        }
-        catch (FormatException)
-        {
-            Console.WriteLine($"{capacidadeDigitada} não é um número válido. Tente novamente.");
-        }
-    }
+    
+    Console.Write("Digite a descrição do compromisso: ");
+    descricao = Console.ReadLine();
 
     try
     {
@@ -125,6 +124,7 @@ static void RegistrarCompromisso(Usuario usuario)
         Console.Write("Deseja adicionar participantes? (s/n): ");
         if (Console.ReadLine()?.ToLower() == "s")
         {
+        try{
             while (true)
             {
                 Console.Write("Digite o nome do participante (ou deixe em branco para finalizar): ");
@@ -134,6 +134,12 @@ static void RegistrarCompromisso(Usuario usuario)
                 Participante participante = new(nomeParticipante);
                 compromisso.AdicionarParticipante(participante);
             }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Erro ao adicionar participante: {ex.Message}");
+            Console.WriteLine($"Proseguindo sem adição do participante escedente.");
+        }
         }
 
         Console.Write("Deseja adicionar anotações? (s/n): ");
@@ -154,12 +160,10 @@ static void RegistrarCompromisso(Usuario usuario)
     }
     catch (Exception ex)
     {
-        Console.WriteLine($"Erro ao registrar compromisso: {ex.Message}");
+        Console.WriteLine($"Erro ao registrar compromisso:\n {ex.Message}");
         data = null;
         hora = null;
         descricao = null;
-        nomeLocal = null;
-        capacidade = null;
     }
     }
 }
@@ -175,6 +179,34 @@ static void ExibirCompromissos(Usuario usuario)
 
     foreach (var compromisso in usuario.Compromissos)
     {
-        Console.WriteLine(compromisso);
+        Console.WriteLine($"\n{compromisso}");
+        
+        // Exibir participantes
+        if (compromisso.Participantes.Count > 0)
+        {
+            Console.WriteLine("Participantes:");
+            foreach (var participante in compromisso.Participantes)
+            {
+                Console.WriteLine($"- {participante.Nome}");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Nenhum participante registrado.");
+        }
+
+        // Exibir anotações
+        if (compromisso.Anotacoes.Count > 0)
+        {
+            Console.WriteLine("Anotações:");
+            foreach (var anotacao in compromisso.Anotacoes)
+            {
+                Console.WriteLine($"- {anotacao.Texto} (Criada em: {anotacao.DataCriacao:dd/MM/yyyy HH:mm})");
+            }
+        }
+        else
+        {
+            Console.WriteLine("Nenhuma anotação registrada.");
+        }
     }
 }

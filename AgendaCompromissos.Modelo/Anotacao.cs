@@ -9,11 +9,6 @@ public class Anotacao
 
     public Anotacao(string texto)
     {
-        if (string.IsNullOrWhiteSpace(texto))
-        {
-            throw new ArgumentException("O texto da anotação não pode ser vazio.");
-        }
-
         Texto = texto;
         DataCriacao = DateTime.Now;
     }

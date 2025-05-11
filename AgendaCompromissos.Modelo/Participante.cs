@@ -11,10 +11,6 @@ public class Participante
 
     public Participante(string nome)
     {
-        if (string.IsNullOrWhiteSpace(nome))
-        {
-            throw new ArgumentException("O nome do participante é obrigatório.");
-        }
         Nome = nome;
     }
 

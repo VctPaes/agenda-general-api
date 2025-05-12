@@ -117,3 +117,6 @@ Este projeto foi desenvolvido por Murilo Andre Rodrigues e por Victor Luiz De Ol
 
 - **Email**: murilorodrigues@alunos.utfpr.edu.br
 - **GitHub**: Murilo-A-Rodrigues(https://github.com/Murilo-A-Rodrigues)
+
+- **Email**: victorpaes@alunos.utfpr.edu.br
+- **GitHub**: VctPaes(https://github.com/VctPaes)
